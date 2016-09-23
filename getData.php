@@ -6,7 +6,8 @@ $configName= $_REQUEST["configName"];
 
 $homepage = file_get_contents($url);
 $homepage = preg_replace("/[^A-Za-z]/", ' ', $homepage);
-$homepage = explode(" ", $homepage);
+
+$homepage = preg_split("/[\s,]+/",$homepage);
 
 $finalAnswer = null;
 foreach ($homepage as $value) {
